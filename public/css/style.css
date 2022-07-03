@@ -1,0 +1,395 @@
+/* ------DATOS GLOBALES-------*/
+* {
+    margin: 0px; /*centra todo*/
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Dosis', sans-serif;
+}
+
+/*---------HEADER MOBILE--------*/
+
+/*----------- Menu Hamburguer Animacion ----------*/
+.icon-container
+{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.6)
+}
+
+.hamburger-icon
+{
+    width: 50px;
+    height: 6px;
+    background-color: rgb(0 124 196);
+    border: 5px;
+    border-radius: 5px;
+    position: relative; /*para que los demas elementos esten posicionados absolutamente en base a este*/
+    transition: 320ms ease-in-out;
+}
+
+.icon-container.open .hamburger-icon /*cuando el hamburger esta dentro del iconcontaineropen*/
+{
+    background-color: transparent;
+    transform: translateX(-50px);
+
+}
+
+.icon-container.open .hamburger-icon::before
+{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.icon-container.open .hamburger-icon::after
+{
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+.hamburger-icon::before, .hamburger-icon::after
+{
+    content: "";
+    width: 100%;
+    height: 6px;
+    background-color: rgb(0 124 196);
+    border-radius: 5px;
+    position: absolute;
+    transition: 320ms ease-in-out;
+}
+
+.hamburger-icon::before
+{
+    transform: translateY(-16px);
+}
+
+.hamburger-icon::after
+{
+    transform: translateY(16px);
+}
+
+/*-----------Pantalla Menu Hamburguer---------------*/
+.menu-hamburger {
+    position: absolute;
+    background: linear-gradient(258deg, #ffffff, #007cc4);
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    z-index: 23;
+    top: 73px;
+    display: flex;
+    justify-content: center;
+    font-size: 42px;
+    line-height: 3;
+    transition: all 1s;
+}
+
+.menu-hamburger.active{
+    height: 100vh;
+    padding-top: 41px;
+}
+
+.contenido-menu-hamburger p
+{
+    text-align: center;
+}
+
+.contenido-menu-hamburger a
+{
+    text-decoration: none;
+}
+/*LOGO.----------------*/
+.logo
+{
+    width: 180px;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+.logo img
+{
+    width: 100%;
+}
+
+.header-contenedor
+{
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+
+
+/*----------------MAIN----------------*/
+.welcome
+{
+    margin-top: 30px;
+}
+.welcome, .datosIngreso
+{
+    text-align: center;
+}
+
+.imagen-bienvenida img
+{
+    width: 100%;
+}
+
+.imagen-bienvenida
+{
+    margin-top: 20px;
+}
+
+.formulario-ingreso
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.formulario-contenedor-chico
+{
+    background-color: #bee7ff;
+    width: 90%;
+    padding: 10px 34px;
+    border-radius: 20px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.input-usuario, .input-contra
+{
+    margin-bottom: 12px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.input-usuario input, .input-contra input
+{
+    width: 100%;
+    border-radius: 15px;
+    height: 30px;
+}
+
+.enviarBoton
+{
+    font-size: 17px;
+    background-color: #49afcd;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 7px;
+}
+
+.mini-contenedor-login
+{
+    width: 100%;
+}
+
+
+
+/*-------MEDIDAS CELU MODERNO--------------*/
+@media(min-width: 550px)
+{
+    .icon-container
+    {
+        width: 172px;
+        height: 142px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: scale(1.2);
+    }
+
+    .menu-hamburger
+    {
+        position: absolute;
+        background: linear-gradient(258deg, #ffffff, #007cc4);
+        width: 100%;
+        height: 0px;
+        overflow: hidden;
+        z-index: 23;
+        top: 137px;
+        display: flex;
+        justify-content: center;
+        font-size: 42px;
+        line-height: 3;
+        transition: all 1s;
+    }
+
+    .welcome, .datosIngreso
+    {
+        font-size: 37px;
+    }
+
+    .mini-contenedor-login, .enviarBoton
+    {
+        font-size: 35px;
+    }
+
+    .input-usuario input, .input-contra input {
+        width: 100%;
+        border-radius: 15px;
+        height: 49px;
+    }
+
+    .imagen-bienvenida {
+        /* margin-top: 20px; */
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+    }
+
+    .formulario-contenedor-chico {
+        background-color: #bee7ff;
+        width: 90%;
+        padding: 31px 34px;
+        border-radius: 20px;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo {
+        width: 320px;
+        padding-top: 22px;
+        padding-left: 5px;
+    }
+}
+
+
+/*-------MEDIDAS PC--------------*/
+@media(min-width: 1010px)
+{
+    .contenedor-formulario-imagenBienvenida
+    {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .formulario-ingreso {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .imagen-bienvenida {
+        /* margin-top: 20px; */
+        position: static; 
+        /* bottom: 0px; */
+        width: 50%;
+    }
+    .icon-container
+    {
+        display: none;
+    }
+
+    .enlaces-header {
+        display: flex;
+        flex-wrap: nowrap;
+        font-size: 23px;
+        width: 64%;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .formulario-contenedor-chico {
+        background-color: #bee7ff;
+        width: 90%;
+        padding: 31px 34px;
+        border-radius: 20px;
+        font-size: 20px;
+        display: flex;
+        height: 325px;
+        justify-content: center;
+    }
+
+    .imagen-bienvenida img {
+        width: 96%;
+    }
+
+    .input-usuario input, .input-contra input {
+        font-size: 25px;
+    }
+
+    /*----------MAIN de alumno--------*/
+    .contenedor-general-form
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .contenedor-general-chico {
+        background-color: #c1c1c1;
+        width: 58%;
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 15px 46px;
+        border: 4px solid black;
+        border-radius: 30px;
+    }
+
+    h5
+    {
+        margin-bottom: 12px;
+    }
+    .subcontenedor-form input
+    {
+        margin-bottom: 12px;
+        border: 3px solid black;
+        height: 30px;
+    }
+    .button-alum
+    {
+        display: flex;
+        justify-content: end;
+    }
+    .button-alum button {
+        border: 1px solid green;
+        padding: 8px 20px;
+        border-radius: 60px;
+    }
+    .label-container
+    {
+        
+    }
+    .contenedor-general-input {
+        display: flex;
+        flex-wrap: wrap;
+        /* gap: 0px 72px; */
+        justify-content: space-between;
+    }
+    .contenedor-materias {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .materia
+    {
+        width: 100%;
+    }
+    .contenedor-input {
+        width: 50%;
+    }
+    .formulario-alumno
+    {
+        width: 100%;
+    }
+    .next, .error
+    {
+        margin-top: 30px;
+    }
+
+    /*-----admin main------*/
+    .contenedor-general-form-corr
+    {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    .corrs
+    {
+        margin-top: 22px;
+    }
+}
